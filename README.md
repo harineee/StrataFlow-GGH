@@ -16,4 +16,4 @@ To get started with this project:
 1. Clone the repository to your local machine.
 2. Review the README.md file for an overview of the project and its objectives.
 3. Refer to design.txt for detailed design specifications, if available.
-4. Open pseudo.py to explore the initial pseudocode or code snippets related to the simulation and optimization algorithms.
+4. Save 'sim.csv' and execute 'pseudo.py' on your local machine. Store both files in the same working folder.
