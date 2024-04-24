@@ -1,6 +1,6 @@
 # StrataFlow-GGH
 
-StrataFlow aims to optimize the design of a network-on-chip (NOC) system within a silicon design environment. The goal is to achieve optimal performance metrics, including latency, bandwidth, buffer occupancy, and throttling frequency. This project utilizes a simulator setup and Reinforcement Learning (RL) techniques to derive an optimal NOC design. 
+StrataFlow aims to optimize the design of a network-on-chip (NOC) system within a silicon design environment. The goal is to achieve optimal performance metrics, including latency, bandwidth, buffer occupancy, and throttling frequency. This project utilizes a simulator setup and Reinforcement Learning (RL) techniques to derive an optimal NOC design. 'StrataFlow' is a portmanteau of the words 'strata' and 'data flow'.
 
 The code simulates a network-on-chip (NOC) system's performance metrics like latency, bandwidth, and buffer occupancy. It reads simulated monitor output data from a CSV file and calculates average read latency and bandwidth based on the data. The code parses each row of the data to extract timestamps and transaction types, calculates the total bytes transferred assuming 32 bytes per write transaction, and determines the total cycles based on the timestamps. It then computes the average read latency by subtracting consecutive read timestamps and calculates the average bandwidth as the total bytes transferred divided by the total cycles. 
 
