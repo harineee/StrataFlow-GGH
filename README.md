@@ -5,12 +5,12 @@ StrataFlow aims to optimize the design of a Network on Chip (NOC) system within 
 The RL technique chosen is Deep Q-Networks (DQN), to develop a robust design framework. This framework will derive optimal parameters for the NOC, considering factors like measured latency, bandwidth, buffer sizing, and throttling frequency. DQN is well-suited for problems where there is a large state space and actions have long-term consequences, which aligns with the optimization goals of the NOC design. 
 
 Project Structure:
-README.md: This file contains an overview of the project, its goals, approach, and project structure.
-design.txt: This file contains detailed design specifications, architecture diagrams and any other design-related documentation.
-pseudo.py: This Python file contains pseudocode or initial code snippets related to the project's simulation and optimization algorithms.
+1. README.md: This file contains an overview of the project, its goals, approach, and project structure.
+2. design.txt: This file contains detailed design specifications, architecture diagrams and any other design-related documentation.
+3. pseudo.py: This Python file contains pseudocode or initial code snippets related to the project's simulation and optimization algorithms.
 
 To get started with this project, follow these steps:
-Clone the repository to your local machine.
-Review the README.md file for an overview of the project and its objectives.
-Refer to design.txt for detailed design specifications, if available.
-Open pseudo.py to explore the initial pseudocode or code snippets related to the simulation and optimization algorithms.
+1. Clone the repository to your local machine.
+2. Review the README.md file for an overview of the project and its objectives.
+3. Refer to design.txt for detailed design specifications, if available.
+4. Open pseudo.py to explore the initial pseudocode or code snippets related to the simulation and optimization algorithms.
