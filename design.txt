@@ -1,1 +1,22 @@
+#Design Document-
+The use of DQN is recommended based on its suitability for problems with large state-action spaces, continuous learning capabilities, and adaptive control mechanisms, aligning well with the dynamic and complex nature of NOC optimization.
+
+The NOC system, comprising CPU, IO peripherals, System memory, and a weighted round-robin arbiter, requires dynamic optimization to handle diverse workloads effectively. Traditional static configurations may lead to suboptimal performance under varying traffic patterns. Therefore, leveraging DQN, an RL algorithm, can enable the NOC to adapt and optimize its parameters based on real-time system conditions and workload characteristics.
+
+The RL framework using DQN consists of the following components:
+
+1. States/Behaviors: States represent the current NOC configuration, including buffer occupancy, arbitration rates, power thresholds, and historical traffic patterns. Behaviors capture the dynamic interactions within the NOC, such as data transfers between components and arbitration decisions.
+2. Actions: Actions are the decisions that the RL agent (DQN) can take based on states. These actions may involve adjusting buffer sizes, modifying arbitration weights, tuning throttling frequencies, and other configurations within the NOC.
+3. Rewards: Rewards serve as feedback to the DQN agent, indicating the desirability of actions taken in a particular state. Positive rewards are assigned for actions leading to improved latency, increased bandwidth, efficient resource utilization, and optimal NOC performance. Negative rewards or penalties are given for actions that degrade performance or waste resources.
+
+Advantages of DQN for NOC Optimization:
+
+1. Efficient Exploration: DQN's deep neural network architecture enables efficient exploration of the vast state-action space, allowing the agent to learn complex patterns and optimal strategies.
+2. Continuous Learning: DQN can continuously learn and update its Q-values based on experiences, ensuring adaptation to changing workloads and system dynamics over time.
+3. Adaptive Control: By learning optimal policies, DQN can dynamically adjust NOC parameters in response to varying traffic patterns and workload demands, leading to improved overall system performance.
+
+Design Considerations:
+
+1. Input Vector Generation: The RL agent (DQN) requires an input vector derived from NOC states and behaviors. The algorithm should efficiently generate this input vector, considering factors like coverage, correctness, time complexity, and space complexity.
+2. Training and Evaluation: The DQN model will undergo training using historical data and simulation environments. Evaluation criteria include coverage across different circuit designs, time and space complexity of the algorithm, and correctness in optimizing NOC parameters.
 
