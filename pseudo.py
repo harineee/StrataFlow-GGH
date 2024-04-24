@@ -51,6 +51,7 @@ def simulate_system():
                 print(f"Write Latency: {write_lat} cycles")
                 print(f"Read Bandwidth: {read_bw} bytes/sec")
                 print(f"Write Bandwidth: {write_bw} bytes/sec")
+                print("*" * 30)
 
         time.sleep(1)  #simulate waiting for the next cycle
 
