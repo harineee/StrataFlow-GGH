@@ -1,60 +1,43 @@
-import time
-import random
+import csv
 
-f=1  #operating frequency of the system
-w=32  #data width in bits
+def read(fp):
+    data=[]
+    with open(fp,'r') as f:
+        reader=csv.DictReader(f)
+        for row in reader:
+            data.append(row)
+    return data
 
-def bo(b_id):
-    return random.randint(70, 100)  #random buffer occupancy percentage for demonstration
+def measure_latency_bandwidth(data):
+    r_ts=[]  #read timestamps
+    w_ts=[]  #write timestamps
+    b_trans=0  #total bytes transferred
+    t_cycles=0  #total cycles
 
-def ar(agent_t):
-    return random.uniform(0.5, 1.0)  #random arbiter rate for demonstration
+    for entry in data:
+        ts=int(entry['Timestamp'])
+        txn_type=entry['TxnType']
 
-def pl():
-    return random.choice([0, 1])  #random power limit threshold for demonstration
+        if txn_type=="Rd":
+            r_ts.append(ts)  #store read timestamp
+        elif txn_type=="Wr":
+            w_ts.append(ts)  #store write timestamp
+            b_trans+=32  #assuming 32 bytes per write
 
-def rl():
-    return random.randint(5, 15)  #random read latency in cycles for demonstration
+        t_cycles=ts  #update total cycles to current timestamp
 
-def wl():
-    return random.randint(10, 20)  #random write latency in cycles for demonstration
+    r_latencies=[r_ts[i]-r_ts[i-1] for i in range(1,len(r_ts))]
+    avg_r_lat=sum(r_latencies)/len(r_latencies) if r_latencies else 0
 
-def bw(bt, cy):
-    #bandwidth calculation in bytes per second
-    return bt / (cy * f)
+    avg_bw=b_trans/t_cycles
 
-#main function to simulate the system
-def simulate_system():
-    buffer_ids = [1, 2, 3]  #example buffer IDs for demonstration
-    agent_types = ["CPU", "IO"]  #example agent types for demonstration
+    return avg_r_lat,avg_bw
 
-    #simulate system operation
-    while True:
-        for b_id in buffer_ids:
-            for agent_t in agent_types:
-                buff_occ = bo(b_id)
-                arb_rate = ar(agent_t)
-                pow_limit = pl()
+if __name__=="__main__":
+    fp='sim.csv'
+    data=read(fp)
+    avg_r_lat,avg_bw=measure_latency_bandwidth(data)
 
-                read_lat = rl()
-                write_lat = wl()
-
-                read_bw = bw(w, read_lat)
-                write_bw = bw(w, write_lat)
-
-                #print simulation results
-                print(f"Buffer ID: {b_id}, Agent Type: {agent_t}")
-                print(f"Buffer Occupancy: {buff_occ}%")
-                print(f"Arbiter Rate ({agent_t}): {arb_rate}")
-                print(f"Power Limit Threshold: {pow_limit}")
-                print(f"Read Latency: {read_lat} cycles")
-                print(f"Write Latency: {write_lat} cycles")
-                print(f"Read Bandwidth: {read_bw} bytes/sec")
-                print(f"Write Bandwidth: {write_bw} bytes/sec")
-                print("*" * 30)
-
-        time.sleep(1)  #simulate waiting for the next cycle
-
-#execute the sim
-if __name__ == "__main__":
-    simulate_system()
+    print("Simulation Results:")
+    print(f"Average Read Latency: {avg_r_lat} cycles")
+    print(f"Average Bandwidth: {avg_bw} bytes/cycle")
