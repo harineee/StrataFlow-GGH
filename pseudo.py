@@ -1,4 +1,5 @@
 import csv
+import random 
 
 def read(fp):
     data=[]
@@ -33,6 +34,17 @@ def measure_latency_bandwidth(data):
 
     return avg_r_lat,avg_bw
 
+def adjust_buffer_sizes():
+    # Adjust buffer sizes logic here
+    print("Adjusting buffer sizes for 90% occupancy...")
+
+def apply_throttling():
+    # Apply throttling logic here
+    if random.random() < 0.05:
+        print("Throttling activated...")
+    else:
+        print("No throttling.")
+
 if __name__=="__main__":
     fp='sim.csv'
     data=read(fp)
@@ -41,3 +53,13 @@ if __name__=="__main__":
     print("Simulation Results:")
     print(f"Average Read Latency: {avg_r_lat} cycles")
     print(f"Average Bandwidth: {avg_bw} bytes/cycle")
+
+    #check optimality conditions
+    if avg_r_lat <= 10 and avg_bw >= 0.95 * 1000:
+        print("Optimal design achieved.")
+    else:
+        print("Design does not meet optimality criteria.")
+
+    #additional functionality
+    adjust_buffer_sizes()
+    apply_throttling()
