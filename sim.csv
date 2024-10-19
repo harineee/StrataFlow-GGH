@@ -2,7 +2,6 @@ Timestamp,TxnType,Data
 0,Rd,Addr1
 2,Wr,Addr2
 4,Wr,Addr3
-10,Data,Addr1
 100000,Wr,Addr3
 200000,Rd,Addr4
 201000,Wr,Addr5
