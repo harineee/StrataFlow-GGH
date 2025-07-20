@@ -1,4 +1,4 @@
-# StrataFlow-GGH
+# StrataFlow- Deep Reinforcement Learning for Network-on-Chip Optimization
 
 StrataFlow aims to optimize the design of a network-on-chip (NOC) system within a silicon design environment. The goal is to achieve optimal performance metrics, including latency, bandwidth, buffer occupancy, and throttling frequency. This project utilizes a simulator setup and Reinforcement Learning (RL) techniques to derive an optimal NOC design. 'StrataFlow' is a portmanteau of the words 'strata' and 'data flow'.
 
